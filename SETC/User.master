@@ -1,0 +1,81 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="User.master.cs" Inherits="User" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>教育技术与传播学院 ———— 艺术与技术的融合，智慧与汗水的结晶</title>
+    <link rel="stylesheet" type="text/css" href="User.master.css" />   
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/User.master.js"></script>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <div id="HeadDiv"><a href="Index.aspx" target="_blank">学院首页</a>|<a href="User_Center.aspx">后台管理</a>|<a href="Logout.aspx" id="logout">安全退出</a></div>
+<div id="Wrapper">
+    <div id="SideBar">        
+        <div id="Avatar">
+            <asp:Image ID="AvatarImage" runat="server" Width="150" Height="150" />
+            <p><%= Session["UserName"] %></p>
+            <p><%= Session["RoleName"] %></p>
+        </div>
+        <div id="SideMenu">
+            <asp:Panel ID="ProfilePanel" runat="server">
+            <h2>用户模块</h2>
+            <ul>
+                <li><a href="#">使用帮助和说明</a></li>
+                <li><a href="User_Avatar.aspx">更换用户头像</a></li>
+                <li><a href="User_Edit.aspx?ID=<%= Session["UserID"] %>">更新个人信息</a></li>
+                <!-- <li><a href='User_Profile.aspx?ID=<%= Session["UserID"] %>' target="_blank">设计用户首页</a></li> -->
+                <li><a href="User_Password.aspx">更换用户密码</a></li>
+            </ul>
+            </asp:Panel>
+            <asp:Panel ID="ArticlePanel" runat="server">
+            <h2>文章模块</h2>
+            <ul>
+                <li><a href="Article_Man.aspx">文章管理</a></li>
+                <li><a href="Article_Add.aspx">发表新文章</a></li>
+                <li><a href="Focus_Man.aspx">焦点图管理</a></li>
+                <li><a href="#">草稿箱</a></li>
+                <li><a href="#">统计信息</a></li>
+            </ul>
+            </asp:Panel>
+            <asp:Panel ID="ShowPanel" runat="server">
+            <h2>作品模块</h2>
+            <ul>
+                <li><a href="Show_Man.aspx">作品管理</a></li>
+                <li><a href="Show_Add.aspx">上传新作品</a></li>
+            </ul>
+            </asp:Panel>
+            <asp:Panel ID="UserPanel" runat="server">
+            <h2>用户模块</h2>
+            <ul>
+                <li><a href="User_Man.aspx">用户管理</a></li>
+            </ul>
+            </asp:Panel>
+            <asp:Panel ID="CatPanel" runat="server">
+            <h2>栏目和导航模块</h2>
+            <ul>
+                <li><a href="Cat_Man.aspx">栏目管理</a></li>
+                <li><a href="Nav_Man.aspx">上传新作品</a></li>
+            </ul>
+            </asp:Panel>
+        </div>
+        <p>&nbsp;</p>
+        </div>
+    <div id="Content">
+    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder> 
+    </div>
+</div>
+<div id="Foot">
+    <p>版权所有 &copy; Justin 联系QQ 21646523</p>
+</div>
+    </form>
+</body>
+</html>
